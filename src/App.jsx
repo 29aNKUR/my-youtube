@@ -3,9 +3,13 @@ import { createBrowserRouter,RouterProvider } from "react-router-dom";
 import "./App.css";
 import Body from "./components/Body";
 import Head from "./components/Head";
-import MainContainer from "./components/MainContainer";
 import store from "./utils/store";
 import WatchPage from "./components/WatchPage";
+import { lazy,Suspense, useState } from "react";
+import Shimmer from "./components/Shimmer";
+
+
+const MainContainer = lazy(()=>import("./components/MainContainer"));
 
 
 const appRouter = createBrowserRouter([
@@ -15,12 +19,16 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <MainContainer />,
+        element: <Suspense fallback={<Shimmer/>}><MainContainer/></Suspense>,
       },
       {
         path: "watch",
         element: <WatchPage />,
       },
+      {
+        path:"shimmer",
+        element:<Shimmer />
+      }
     ],
   },
 ]);

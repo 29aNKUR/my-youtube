@@ -30,4 +30,13 @@ const VideoCard = ({info}) => {
   )
 }
 
+//example of Higher Order Component
+export const AdVideoCard = ({info}) => {
+  return (
+    <div className='border border-black-100'>
+      <VideoCard info = {info}/>
+    </div>
+  )
+}
+
 export default VideoCard
