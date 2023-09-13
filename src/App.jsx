@@ -5,7 +5,7 @@ import Body from "./components/Body";
 import Head from "./components/Head";
 import store from "./utils/store";
 import WatchPage from "./components/WatchPage";
-import { lazy,Suspense, useState } from "react";
+import { lazy,Suspense } from "react";
 import Shimmer from "./components/Shimmer";
 
 

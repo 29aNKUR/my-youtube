@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { YOUTUBE_SEARCH_API, YOUTUBE_VIDEOS_API } from "../utils/apiData";
 import { toggleMenu } from "../utils/appSlice";
 import { cacheResults } from "../utils/searchSlice";
 
@@ -39,7 +38,7 @@ const Head = () => {
 
   const getSearchSuggestions = async () => {
     // console.log(searchQuery);
-    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+    const data = await fetch(process.env.REACT_APP_YOUTUBE_SEARCH_API + searchQuery);
     const json = await data.json();
     // console.log(json[1]);
     setSuggestions(json[1]);

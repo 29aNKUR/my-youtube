@@ -14,7 +14,7 @@ const VideoContainer = () => {
   },[]);  
 
   const getVideos = async () => {
-    const data = await fetch(YOUTUBE_VIDEOS_API);
+    const data = await fetch(process.env.REACT_APP_YOUTUBE_VIDEOS_API);
     const json = await data.json();
     // console.log(json); we need to enable the API from our project on google cloud
     // console.log(json.items)
